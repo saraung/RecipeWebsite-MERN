@@ -44,7 +44,7 @@ const Addrecipe = () => {
   const submitHandler = () => {
     if (location.state != null) {
       axios
-        .put("http://localhost:3010/editrec/" + location.state.val._id, data)
+        .put("https://recipe-website-mern-api.vercel.app/editrec/" + location.state.val._id, data)
         .then((res) => {
           alert(res.data.message);
           navigate(`/myrecipes/${authData.userId}`);

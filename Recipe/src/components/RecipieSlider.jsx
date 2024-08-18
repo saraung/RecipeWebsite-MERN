@@ -12,7 +12,7 @@ const RecipeSlider = () => {
   useEffect(() => {
     const fetchRandomRecipes = async () => {
       try {
-        const response = await axios.get('http://localhost:3010/randomrec');
+        const response = await axios.get('https://recipe-website-mern-api.vercel.app/randomrec');
         setRecipes(response.data);
         setLoading(false);
       } catch (error) {
