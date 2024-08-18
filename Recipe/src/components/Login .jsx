@@ -58,7 +58,24 @@ const Login =() =>{
   }
 })
     .catch((err)=>{
-      console.log(err)
+      if (err.response) {
+        switch (err.response.status) {
+            case 404:
+                alert('User does not exist');
+                break;
+            case 401:
+                alert('Invalid email or password');
+                break;
+            case 400:
+                alert('Email and password are required');
+                break;
+            default:
+                alert('Login failed');
+                break;
+        }
+    } else {
+        alert('An error occurred during login');
+    }
     })
     console.log(data);
   

@@ -27,12 +27,12 @@ const Navbar = () => {
 
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1}}>
       <AppBar position="fixed" style={{ backgroundColor: 'black',marginBottom: 0 }}>
         <Toolbar>
           <Button component={Link} to="/" startIcon={<HouseIcon sx={{ color: 'white' }} />} />
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Recipes
+          Culinary Palette
           </Typography>
           {authData.token ? (
             <>

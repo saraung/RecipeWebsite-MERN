@@ -44,6 +44,15 @@ const RecipeSlider = () => {
           drag: 'free',
           snap: true,
           wheel: true,
+          breakpoints: {
+            768: {
+              perPage: 1, // Show 1 slide per page on mobile devices
+              gap: '0.5rem', // Adjust gap for mobile view
+            },
+            1024: {
+              perPage: 2, // Show 2 slides per page on tablets
+            },
+          },
         }}
       >
         {recipes.map((recipe) => (

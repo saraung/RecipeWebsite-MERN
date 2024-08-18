@@ -5,13 +5,31 @@ const jwt = require('jsonwebtoken');
 const app = express();
 const RecipeModel=require("./model/recipe")
 
+require('dotenv').config();
+
+
 require('./connection');
 
 const UserModel = require('./model/user');
 
 // Middleware
 app.use(express.json());
-app.use(cors());
+const corsOptions = {
+  origin:  'http://localhost:5173', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
+
+app.use(cors(corsOptions));
+
+// app.options('*', cors(corsOptions)); 
+
+
+
+app.get('/',(req,res)=>{
+  res.json("hello")
+})
+
 
 app.post('/register', async (req, res) => {
     try {
@@ -78,7 +96,7 @@ app.post('/login', async (req, res) => {
     }
   
 
-    const token = jwt.sign({ id: user._id , isAdmin: user.isAdmin}, 'recipee_website', { expiresIn: '1h' });
+    const token = jwt.sign({ id: user._id , isAdmin: user.isAdmin}, process.env.JWT_SECRET, { expiresIn: '1h' });
     res.status(200).json({ message:"login succesfull",token });
   } catch (error) {
       console.error(error);

@@ -46,23 +46,41 @@ const Recipe = () => {
     };
 
     return (
-        <div className='recipe-detail' >
-            <div style={{ marginLeft: "80px", marginTop: "64px", marginRight: "80px" }} >
+        <div className='recipe-detail' style={{ margin: '0px' }}>
             {recData ? (
                 <div>
-                   <h1>{recData.title}</h1>
-                    <img src={recData.image} alt={recData.title} style={{ width: '50%', maxHeight: '400px', objectFit: 'cover' }} />
-                    <h1>Ingredients</h1>
-                    <p>{recData.ingredients}</p>
-                    <h1>Making</h1>
-                    <p>{recData.description}</p>
-                    
+                    <Typography variant="h3" sx={{
+                        fontSize: { xs: '1.5rem', md: '2.5rem' },
+                        textAlign: 'center',
+                        marginBottom: '20px'
+                    }}>
+                        {recData.title}
+                    </Typography>
+                    <img 
+                        src={recData.image} 
+                        alt={recData.title} 
+                        style={{ 
+                            width: '50%', 
+                            maxHeight: '400px', 
+                            objectFit: 'cover',
+                            borderRadius: '8px',
+                            marginBottom: '20px'
+                        }} 
+                    />
+                    <Typography variant="h4" sx={{ fontSize: { xs: '1.2rem', md: '1.8rem' } }}>Ingredients</Typography>
+                    <Typography variant="body1" sx={{ fontSize: { xs: '0.9rem', md: '1rem' } }}>
+                        {recData.ingredients}
+                    </Typography>
+                    <Typography variant="h4" sx={{ fontSize: { xs: '1.2rem', md: '1.8rem' }, marginTop: '20px' }}>Making</Typography>
+                    <Typography variant="body1" sx={{ fontSize: { xs: '0.9rem', md: '1rem' } }}>
+                        {recData.description}
+                    </Typography>
                 </div>
             ) : (
-                <p>Loading...</p>
+                <Typography variant="h6">Loading...</Typography>
             )}
-        </div>
-        <div style={{ marginTop: '20px' }}>
+
+            <div style={{ marginTop: '20px' }}>
                 <form onSubmit={handleReviewSubmit}>
                     <TextField
                         label="Your Review"
@@ -70,7 +88,8 @@ const Recipe = () => {
                         onChange={handleReviewChange}
                         fullWidth
                         multiline
-                    /><br /><br />
+                        sx={{ marginBottom: '20px' }}
+                    />
                     <TextField
                         label="Rating"
                         type="number"
@@ -78,6 +97,7 @@ const Recipe = () => {
                         onChange={(e) => setRating(Number(e.target.value))}
                         fullWidth
                         inputProps={{ min: 1, max: 5 }}
+                        sx={{ marginBottom: '20px' }}
                     />
                     <Button type="submit" variant="contained" color="primary">
                         Submit Review
@@ -86,20 +106,18 @@ const Recipe = () => {
             </div>
 
             <div style={{ marginTop: '20px' }}>
-                <h3>Reviews:</h3>
+                <Typography variant="h6">Reviews:</Typography>
                 <List>
                     {reviews.map((r, index) => (
-                             <ListItem key={index}>
-                             <div style={{ display: 'flex', alignItems: 'center' }}>
-                                 {/* Add the dot symbol */}
-                                 <Typography variant="h6" style={{ marginRight: '8px' }}>•</Typography>
-                                 <ListItemText
-                                     primary={"Review: " + r.review}
-                                     secondary={"Rating: " + r.rating}
-                                 />
-                             </div>
-                         </ListItem>
-                   
+                        <ListItem key={index}>
+                            <div style={{ display: 'flex', alignItems: 'center' }}>
+                                <Typography variant="h6" style={{ marginRight: '8px' }}>•</Typography>
+                                <ListItemText
+                                    primary={"Review: " + r.review}
+                                    secondary={"Rating: " + r.rating}
+                                />
+                            </div>
+                        </ListItem>
                     ))}
                 </List>
             </div>

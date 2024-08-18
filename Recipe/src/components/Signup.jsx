@@ -13,10 +13,13 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const defaultTheme = createTheme();
 
 export default function Signup() {
+
+  const navigate =useNavigate()
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -40,6 +43,12 @@ export default function Signup() {
       navigate('/login')
   })
   .catch((err) => {
+    console.log(err);
+    if (err.response && err.response.status === 409) {
+      alert('Email already exists. Please use a different email.');
+    } else {
+      alert('An error occurred. Please try again.');
+    }
      
   });
   

@@ -21,7 +21,7 @@
 .catlist {
   display: flex;
   flex-direction: row;
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
   justify-content: center;
   margin: 0rem 0;
   gap: 10px;
@@ -117,13 +117,14 @@
   color: #fff; 
 }
 .sign-background {
-  background-image: url('./assets/login.jpeg'); 
+  /* background-image: url('./assets/login.jpeg');  */
   background-size: cover; 
   background-position: center;
   background-repeat: no-repeat; 
   min-height: 100vh; 
   padding: 4rem; 
   color: #fff; 
+  margin-top: 64px;
 }
 
 @keyframes runningText {
@@ -147,7 +148,7 @@
 }
 
 .recipe-card {
-  background-color: #fff;
+  background-color: #f0a85f;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -180,12 +181,19 @@
   
 }
 
-.recipe-detail{
-  background-image: url('./assets/backlemon.jpeg'); 
-  background-size: cover; 
+.recipe-detail {
+  background-image: url('./assets/backlemon.jpeg');
+  background-size: cover; /* Ensures the background image covers the entire div */
   background-position: center;
-  background-repeat: no-repeat; 
-  min-height: 100vh; 
-  padding: 4rem; 
-  color: #000000; 
+  background-repeat: no-repeat;
+  min-height: 100vh; /* Ensures the div is at least the height of the viewport */
+  width: 100%;
+  padding: 4rem;
+  box-sizing: border-box; /* Ensures padding is included in the width/height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  margin: 0;
 }
