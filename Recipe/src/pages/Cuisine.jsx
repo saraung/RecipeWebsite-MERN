@@ -4,6 +4,9 @@ import axios from 'axios';
 import { Box, Typography, Card, CardMedia, CardContent, Grid, CircularProgress, Alert } from '@mui/material';
 
 const Cuisine = () => {
+
+  const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
   const { type } = useParams();
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -13,7 +16,7 @@ const Cuisine = () => {
     console.log('Effect run for type:', type);
 
     setLoading(true);
-    axios.get(`http://localhost:3010/catrec/${type}`)
+    axios.get(`${backendUrl}/catrec/${type}`)
       .then((res) => {
         console.log('API Response:', res.data);
         setRecipes(res.data);
