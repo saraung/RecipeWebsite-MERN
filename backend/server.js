@@ -15,7 +15,7 @@ const UserModel = require('./model/user');
 // Middleware
 app.use(express.json());
 const corsOptions = {
-  origin:  'http://localhost:5173', 
+  origin: [ process.env.FRONTEND_URL ,'http://localhost:5173'], 
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
 };
