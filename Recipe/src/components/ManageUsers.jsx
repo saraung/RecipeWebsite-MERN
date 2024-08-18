@@ -10,7 +10,7 @@ const ManageUsers = () => {
     const [users,setUsers]=useState([])
 
     useEffect(()=>{
-        axios.get("http://localhost:3010/viewuser")
+        axios.get("https://recipe-website-mern-api.vercel.app/viewuser")
         .then((res)=>{
             console.log(res.data);
             setUsers(res.data)
@@ -33,7 +33,7 @@ const ManageUsers = () => {
     
       const handleDelete = (userId) => {
         console.log('Delete user with id:', userId);
-    axios.delete("http://localhost:3010/removeuser/"+userId)
+    axios.delete("https://recipe-website-mern-api.vercel.app/removeuser/"+userId)
     .then((res)=>{
         console.log(res)
         alert(res.data.message)

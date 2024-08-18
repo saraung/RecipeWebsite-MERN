@@ -32,7 +32,7 @@ export default function Signup() {
       isAdmin:false
     });
 
-    axios.post('http://localhost:3010/register', data, {
+    axios.post('https://recipe-website-mern-api.vercel.app/register', data, {
       headers: {
           'Content-Type': 'application/json'
       }

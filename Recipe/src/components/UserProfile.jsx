@@ -14,7 +14,7 @@ const UserProfile = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:3010/viewuser/${authData.userId}`);
+                const response = await axios.get(`https://recipe-website-mern-api.vercel.app/viewuser/${authData.userId}`);
                 setUserData(response.data);
             } catch (err) {
                 setError(err.message);

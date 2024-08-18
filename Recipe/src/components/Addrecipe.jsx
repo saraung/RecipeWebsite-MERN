@@ -53,7 +53,7 @@ const Addrecipe = () => {
           console.log(err);
         });
     } else {
-      axios.post("http://localhost:3010/addrec", data)
+      axios.post("https://recipe-website-mern-api.vercel.app/addrec", data)
         .then((res) => {
           alert(res.data.message);
         })

@@ -36,7 +36,7 @@ const Login =() =>{
   const data = new FormData(event.currentTarget);
   const formData = Object.fromEntries(data.entries());
   console.log(formData)
-  axios.post('http://localhost:3010/login', formData)
+  axios.post('https://recipe-website-mern-api.vercel.app/login', formData)
   .then((res) => {
    console.log(res);
    if (res.status === 200 && res.data.token) {

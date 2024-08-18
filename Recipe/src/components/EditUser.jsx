@@ -13,7 +13,7 @@ const EditUser = () => {
   const [isAdmin, setIsAdmin] = useState(authData.isAdmin);
 
   useEffect(() => {
-    axios.get(`http://localhost:3010/viewuser/${id}`)
+    axios.get(`https://recipe-website-mern-api.vercel.app/viewuser/${id}`)
       .then((res) => {
         setUser(res.data);
       })

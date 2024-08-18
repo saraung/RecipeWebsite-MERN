@@ -8,7 +8,7 @@ const ManageRecipies = () => {
   const [rec,setUsers]=useState([])
 
   useEffect(()=>{
-      axios.get("http://localhost:3010/viewrec")
+      axios.get("https://recipe-website-mern-api.vercel.app/viewrec")
       .then((res)=>{
           console.log(res.data);
           setUsers(res.data)
@@ -22,7 +22,7 @@ const ManageRecipies = () => {
 
   const handleDelete = (recId) => {
     console.log('Delete user with id:', recId);
-axios.delete("http://localhost:3010/removerec/"+recId)
+axios.delete("https://recipe-website-mern-api.vercel.app/removerec/"+recId)
 .then((res)=>{
     console.log(res)
     alert(res.data.message)
