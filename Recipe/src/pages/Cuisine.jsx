@@ -10,10 +10,10 @@ const Cuisine = () => {
   const [error, setError] = useState(null);
 
 
-  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  
   useEffect(() => {
 
-    
+    const backendUrl = import.meta.env.VITE_BACKEND_URL;
     console.log('Effect run for type:', type);
     console.log('Backend URL:', backendUrl);
 
