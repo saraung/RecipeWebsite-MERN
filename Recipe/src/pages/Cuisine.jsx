@@ -18,7 +18,7 @@ const Cuisine = () => {
     console.log('Backend URL:', backendUrl);
 
     setLoading(true);
-    axios.get(`https://recipe-website-mern-api.vercel.app/catrec/${type}`)
+    axios.get(`${backendUrl}/catrec/${type}`)
       .then((res) => {
         console.log('API Response:', res.data);
         setRecipes(res.data);
