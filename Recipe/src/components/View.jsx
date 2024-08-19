@@ -25,7 +25,7 @@ const View = () => {
 
     const delValue = (id) => {
         console.log("delete clicked", id);
-        axios.delete(`${backendUrl}/${id}`)
+        axios.delete(`${backendUrl}/removerec/${id}`)
             .then((res) => {
                 console.log(res);
                 alert(res.data.message);
