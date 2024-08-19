@@ -3,13 +3,16 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
+
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
+
 const View = () => {
     const [Recipe, setRecipe] = useState([]);
     const navigate = useNavigate();
     const { id } = useParams();
 
     useEffect(() => {
-        const backendUrl = import.meta.env.VITE_BACKEND_URL;
         axios.get(`${backendUrl}/userrec/${id}`)
             .then((res) => {
                 console.log(res.data);

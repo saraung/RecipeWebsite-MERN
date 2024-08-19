@@ -4,6 +4,10 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from './Authcontext';
 
+
+
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 const Addrecipe = () => {
 
   const { authData } = useContext(AuthContext);
@@ -42,7 +46,7 @@ const Addrecipe = () => {
     setData({ ...data, category: e.target.value });
   };
 
-  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+ 
 
   const submitHandler = () => {
     if (location.state != null) {
