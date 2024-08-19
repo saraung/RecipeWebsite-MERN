@@ -21,6 +21,7 @@ const Addrecipe = () => {
   const location = useLocation();
 
   useEffect(() => {
+  
     if (location.state != null) {
       setData({
         ...data,
@@ -41,10 +42,12 @@ const Addrecipe = () => {
     setData({ ...data, category: e.target.value });
   };
 
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
   const submitHandler = () => {
     if (location.state != null) {
       axios
-        .put("https://recipe-website-mern-api.vercel.app/editrec/" + location.state.val._id, data)
+        .put(`${backendUrl}/editrec/` + location.state.val._id, data)
         .then((res) => {
           alert(res.data.message);
           navigate(`/myrecipes/${authData.userId}`);
@@ -53,7 +56,7 @@ const Addrecipe = () => {
           console.log(err);
         });
     } else {
-      axios.post("https://recipe-website-mern-api.vercel.app/addrec", data)
+      axios.post(`${backendUrl}/addrec`, data)
         .then((res) => {
           alert(res.data.message);
         })

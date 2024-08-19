@@ -12,9 +12,10 @@ const UserProfile = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        const backendUrl = import.meta.env.VITE_BACKEND_URL;
         const fetchData = async () => {
             try {
-                const response = await axios.get(`https://recipe-website-mern-api.vercel.app/viewuser/${authData.userId}`);
+                const response = await axios.get(`${backendUrl}/viewuser/${authData.userId}`);
                 setUserData(response.data);
             } catch (err) {
                 setError(err.message);

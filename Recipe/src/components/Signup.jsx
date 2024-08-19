@@ -32,7 +32,9 @@ export default function Signup() {
       isAdmin:false
     });
 
-    axios.post('https://recipe-website-mern-api.vercel.app/register', data, {
+    const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
+    axios.post(`${backendUrl}/register`, data, {
       headers: {
           'Content-Type': 'application/json'
       }

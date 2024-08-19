@@ -10,7 +10,8 @@ const ManageUsers = () => {
     const [users,setUsers]=useState([])
 
     useEffect(()=>{
-        axios.get("https://recipe-website-mern-api.vercel.app/viewuser")
+      const backendUrl = import.meta.env.VITE_BACKEND_URL;
+        axios.get(`${backendUrl}/viewuser`)
         .then((res)=>{
             console.log(res.data);
             setUsers(res.data)
@@ -33,7 +34,7 @@ const ManageUsers = () => {
     
       const handleDelete = (userId) => {
         console.log('Delete user with id:', userId);
-    axios.delete("https://recipe-website-mern-api.vercel.app/removeuser/"+userId)
+    axios.delete(`${backendUrl}/removeuser/`+userId)
     .then((res)=>{
         console.log(res)
         alert(res.data.message)

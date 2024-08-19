@@ -13,7 +13,8 @@ const EditUser = () => {
   const [isAdmin, setIsAdmin] = useState(authData.isAdmin);
 
   useEffect(() => {
-    axios.get(`https://recipe-website-mern-api.vercel.app/viewuser/${id}`)
+    const backendUrl = import.meta.env.VITE_BACKEND_URL;
+    axios.get(`${backendUrl}/viewuser/${id}`)
       .then((res) => {
         setUser(res.data);
       })
@@ -28,7 +29,7 @@ const EditUser = () => {
   };
 
   const handleSave = () => {
-    axios.put(`http://localhost:3010/edituser/${id}`, user)
+    axios.put(`${backendUrl}/${id}`, user)
       .then((res) => {
         alert('User updated successfully!');
         if (isAdmin) {

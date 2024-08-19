@@ -10,9 +10,10 @@ const RecipeSlider = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const backendUrl = import.meta.env.VITE_BACKEND_URL;
     const fetchRandomRecipes = async () => {
       try {
-        const response = await axios.get('https://recipe-website-mern-api.vercel.app/randomrec');
+        const response = await axios.get(`${backendUrl}/randomrec`);
         setRecipes(response.data);
         setLoading(false);
       } catch (error) {

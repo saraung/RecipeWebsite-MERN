@@ -9,7 +9,8 @@ const View = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        axios.get(`https://recipe-website-mern-api.vercel.app/userrec/${id}`)
+        const backendUrl = import.meta.env.VITE_BACKEND_URL;
+        axios.get(`${backendUrl}/userrec/${id}`)
             .then((res) => {
                 console.log(res.data);
                 setRecipe(res.data);
@@ -21,7 +22,7 @@ const View = () => {
 
     const delValue = (id) => {
         console.log("delete clicked", id);
-        axios.delete(`https://recipe-website-mern-api.vercel.app/${id}`)
+        axios.delete(`${backendUrl}/${id}`)
             .then((res) => {
                 console.log(res);
                 alert(res.data.message);

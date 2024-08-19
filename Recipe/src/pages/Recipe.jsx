@@ -16,7 +16,8 @@ const Recipe = () => {
     const { authData } = useContext(AuthContext);
 
     useEffect(() => {
-        axios.get(`https://recipe-website-mern-api.vercel.app/detailrec/${rec_id}`)
+        const backendUrl = import.meta.env.VITE_BACKEND_URL;
+        axios.get(`${backendUrl}/detailrec/${rec_id}`)
             .then((res) => {
                 setRecData(res.data);
                 setReviews(res.data.reviews || []);
@@ -33,7 +34,7 @@ const Recipe = () => {
     const handleReviewSubmit = (event) => {
         event.preventDefault();
         
-        axios.post(`https://recipe-website-mern-api.vercel.app/addreview/${rec_id}`, { review, rating, user: authData.userId })
+        axios.post(`${backendUrl}/addreview/${rec_id}`, { review, rating, user: authData.userId })
             .then((res) => {
                 setReviews([...reviews, res.data.review]);
                 setReview('');
