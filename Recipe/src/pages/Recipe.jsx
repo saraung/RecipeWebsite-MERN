@@ -14,9 +14,10 @@ const Recipe = () => {
     const [success, setSuccess] = useState('');
 
     const { authData } = useContext(AuthContext);
+    const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
     useEffect(() => {
-        const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
         axios.get(`${backendUrl}/detailrec/${rec_id}`)
             .then((res) => {
                 setRecData(res.data);
