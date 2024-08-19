@@ -8,7 +8,6 @@ const Homepage = () => {
       <RecipeSlider/>
       <Box
         sx={{
-          backgroundImage: 'url(/path/to/your/background-image.jpg)', // Replace with your background image path
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           height: '20vh',
