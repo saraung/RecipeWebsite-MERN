@@ -105,7 +105,7 @@ const Login =() =>{
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5" sx={{color:"black"}}>
+          <Typography component="h1" variant="h5" >
             Sign in
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
@@ -118,6 +118,12 @@ const Login =() =>{
               name="email"
               autoComplete="email"
               autoFocus
+              sx={{
+                backgroundColor: 'white',
+                '& .MuiInputBase-root': {
+                  backgroundColor: 'white',
+                },
+              }}
             />
             <TextField
               margin="normal"
@@ -128,6 +134,12 @@ const Login =() =>{
               type="password"
               id="password"
               autoComplete="current-password"
+              sx={{
+                backgroundColor: 'white',
+                '& .MuiInputBase-root': {
+                  backgroundColor: 'white',
+                },
+              }}
             />
             <Button
               type="submit"

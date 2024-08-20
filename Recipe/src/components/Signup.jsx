@@ -72,7 +72,7 @@ export default function Signup() {
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5" sx={{color:"black"}}>
+          <Typography component="h1" variant="h5" >
             Sign up
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
@@ -86,6 +86,12 @@ export default function Signup() {
                   id="firstName"
                   label="First Name"
                   autoFocus
+                  sx={{
+                    backgroundColor: 'white',
+                    '& .MuiInputBase-root': {
+                      backgroundColor: 'white',
+                    },
+                  }}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -96,6 +102,12 @@ export default function Signup() {
                   label="Last Name"
                   name="lastName"
                   autoComplete="family-name"
+                  sx={{
+                    backgroundColor: 'white',
+                    '& .MuiInputBase-root': {
+                      backgroundColor: 'white',
+                    },
+                  }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -106,6 +118,12 @@ export default function Signup() {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  sx={{
+                    backgroundColor: 'white',
+                    '& .MuiInputBase-root': {
+                      backgroundColor: 'white',
+                    },
+                  }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -117,6 +135,12 @@ export default function Signup() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                  sx={{
+                    backgroundColor: 'white',
+                    '& .MuiInputBase-root': {
+                      backgroundColor: 'white',
+                    },
+                  }}
                 />
               </Grid>
             
